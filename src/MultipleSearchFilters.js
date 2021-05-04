@@ -1,5 +1,5 @@
 import listData from './DataList'
-import {useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const MultipleSearchFilters = () => {
     const [data, setData] = useState(listData)
@@ -60,10 +60,10 @@ const MultipleSearchFilters = () => {
                         key={id}
                         style={{backgroundColor: color, margin: "5px"}}
                     >
-                        <b>name:</b> {name} <br/>
                         <b>color:</b> {color} <br/>
-                        <b>year:</b> {year} <br/>
+                        <b>name:</b> {name} <br/>
                         <b>pantone value:</b> {pantone_value} <br/>
+                        <b>year:</b> {year} <br/>
                     </div> 
                 ))}
             </div>
