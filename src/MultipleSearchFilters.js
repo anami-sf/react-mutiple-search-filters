@@ -15,11 +15,7 @@ const MultipleSearchFilters = () => {
         filter === 'name' && setSearchName(value)
         filter === 'color' && setSearchColor(value)
     }
-
-    // const handleColorSearch = value => {
-    //     s
-    // }
-
+    
     const filterData = (color, name) => {
         const parsedName = name.toLowerCase().trim()
         const parsedColor = color.toLowerCase().trim()
