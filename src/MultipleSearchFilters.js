@@ -10,13 +10,15 @@ const MultipleSearchFilters = () => {
         filterData(searchColor, searchName)
     }, [searchColor, searchName])
     
-    const handleNameSearch = value => {
-        setSearchName(value)
+    const handleSearch = (value, filter) => {
+
+        filter === 'name' && setSearchName(value)
+        filter === 'color' && setSearchColor(value)
     }
 
-    const handleColorSearch = value => {
-        setSearchColor(value)
-    }
+    // const handleColorSearch = value => {
+    //     s
+    // }
 
     const filterData = (color, name) => {
         const parsedName = name.toLowerCase().trim()
@@ -39,7 +41,7 @@ const MultipleSearchFilters = () => {
                     type="text"
                     placeholder="Type your search here"
                     value={searchName}
-                    onChange={e => handleNameSearch(e.target.value)}
+                    onChange={e => handleSearch(e.target.value, 'name')}
                 />
             </div>
             <div>
@@ -47,7 +49,7 @@ const MultipleSearchFilters = () => {
                     type="text"
                     placeholder="Type your search here"
                     value={searchColor}
-                    onChange={e => handleColorSearch(e.target.value)}
+                    onChange={e => handleSearch(e.target.value, 'color')}
                 />
             </div>
             <div>
