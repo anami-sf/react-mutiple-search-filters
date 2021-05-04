@@ -1,5 +1,5 @@
 import listData from './DataList'
-import {useState, useEffect} from 'react'
+import {useEffect, useState } from 'react'
 
 const MultipleSearchFilters = () => {
     const [data, setData] = useState(listData)
@@ -23,7 +23,7 @@ const MultipleSearchFilters = () => {
         (!colorInput && !nameInput) && setData(listData)
         
         const filteredData = listData.filter(({name, color}) => (
-            name.includes(parseString(nameInput)) && color.includes(parseString(colorInput))
+            parseString(name).includes(parseString(nameInput)) && parseString(color).includes(parseString(colorInput))
         ))
         
         setData(filteredData)
@@ -33,22 +33,29 @@ const MultipleSearchFilters = () => {
         <>
             <div>
                 Search by Name: <input 
-                    type="text"
-                    placeholder="Type your search here"
-                    value={searchName}
                     onChange={e => handleSearch(e.target.value, 'name')}
+                    placeholder="Type your search here"
+                    type="text"
+                    value={searchName}
                 />
             </div>
             <div>
                 Search by Color: <input 
-                    type="text"
-                    placeholder="Type your search here"
-                    value={searchColor}
                     onChange={e => handleSearch(e.target.value, 'color')}
+                    placeholder="Type your search here"
+                    type="text"
+                    value={searchColor}
                 />
             </div>
             <div>
-                {data.map(({id, name, year, color, pantone_value}) => (
+                {data.map((
+                    {
+                        color, 
+                        id, 
+                        name, 
+                        pantone_value,
+                        year, 
+                    }) => (
                     <div 
                         key={id}
                         style={{backgroundColor: color, margin: "5px"}}
